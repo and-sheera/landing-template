@@ -18,7 +18,7 @@ jobs:
           node-version: 16
       - run: npm install yarn --legacy-peer-deps
       - run: yarn
-      - run: yarn biuld
+      - run: yarn build
       - run: mv build public
 
   publish-gpr:
@@ -35,7 +35,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm install yarn --legacy-peer-deps
       - run: yarn
-      - run: yarn biuld
+      - run: yarn build
       - run: mv build public
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
