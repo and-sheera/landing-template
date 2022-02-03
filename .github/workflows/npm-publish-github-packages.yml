@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-      - run: npm install yarn
+      - run: npm install yarn --legacy-peer-deps
       - run: yarn
       - run: yarn biuld
       - run: mv build public
@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - run: npm install yarn
+      - run: npm install yarn --legacy-peer-deps
       - run: yarn
       - run: yarn biuld
       - run: mv build public
