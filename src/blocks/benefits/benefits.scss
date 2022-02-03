@@ -1,0 +1,45 @@
+.benefits {
+  &__ui-h2 {
+    margin-bottom: 45px;
+    text-align: center;
+    @include media-tablet {
+      margin-bottom: 30px;
+      text-align: left;
+    }
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 190px;
+    @include media-laptop {
+      gap: 30px 45px;
+    }
+    @include media-tablet {
+      gap: 20px;
+      grid-template-columns: 1fr;
+    }
+  }
+  &__item {
+    &-count {
+      margin-bottom: 15px;
+      font: 700 16px/1.5 $font;
+      color: #6667ab;
+      @include media-laptop {
+        font-size: 14px;
+      }
+      @include media-tablet {
+        margin-bottom: 5px;
+        font-size: 12px;
+      }
+    }
+    &-text {
+      font: 24px/1.4 $font;
+      @include media-laptop {
+        font-size: 20px;
+      }
+      @include media-tablet {
+        font-size: 16px;
+      }
+    }
+  }
+}

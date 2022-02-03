@@ -1,0 +1,55 @@
+.header {
+  flex: 0 1;
+  padding: 40px 0;
+  @include media-tablet {
+    padding: 20px 0;
+  }
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    width: 160px;
+    height: 73px;
+    margin-right: 10px;
+    @include media-tablet {
+      width: 81px;
+      height: 37px;
+    }
+  }
+  &__contacts {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  &__tel {
+    margin-right: 50px;
+    font: 400 20px/1.2 $font;
+    @include media-tablet {
+      margin-right: 10px;
+    }
+    &-txt {
+      @include media-tablet {
+        display: none;
+      }
+    }
+    &-icon {
+      display: none;
+      width: 37px;
+      height: 37px;
+      color: $red;
+      @include media-tablet {
+        display: block;
+      }
+    }
+  }
+  &__ui-button {
+    padding: 10px 28px;
+    font-size: 18px;
+    @include media-tablet {
+      padding: 8px 22px;
+      font-size: 14px;
+    }
+  }
+}

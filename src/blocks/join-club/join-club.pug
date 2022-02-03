@@ -1,0 +1,19 @@
+mixin join-club(mods)
+  -
+    const baseName = 'join-club'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .join-club(class=allMods)&attributes(attributes)
+    .join-club__content
+      .join-club__title With lots of unique blocks, you can easily build a wonderfull page coding
+      +ui-button('Pre order now', 'join-club, --big').js-anchor(href='#request')
+    .join-club__img
+      img(src='img/svgs/join-club.svg', alt='')
+    block

@@ -1,0 +1,51 @@
+.partners {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  @include media-laptop {
+    display: block;
+  }
+  &__text {
+    max-width: 530px;
+    margin-right: 30px;
+    @include media-laptop {
+      max-width: 80%;
+      margin: 0 0 45px;
+    }
+    @include media-tablet {
+      max-width: unset;
+      margin-bottom: 20px;
+    }
+  }
+  &__ui-h2 {
+    margin-bottom: 30px;
+    @include media-tablet {
+      margin-bottom: 20px;
+    }
+  }
+  &__descr {
+    font: 24px/1.4 $font;
+    @include media-laptop {
+      font-size: 22px;
+    }
+    @include media-tablet {
+      font-size: 18px;
+    }
+  }
+  &__wrapper {
+    display: grid;
+    gap: 35px;
+    grid-template-columns: repeat(3, 1fr);
+    width: fit-content;
+    @include media-tablet {
+      gap: 10px;
+    }
+  }
+  &__item {
+    max-width: 230px;
+    max-height: 95px;
+    @include media-tablet {
+      max-height: 45px;
+    }
+  }
+}

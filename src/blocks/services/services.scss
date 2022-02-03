@@ -1,0 +1,40 @@
+.services {
+  &__ui-h2 {
+    margin-bottom: 65px;
+    text-align: center;
+    @include media-laptop {
+      margin-bottom: 45px;
+    }
+    @include media-tablet {
+      margin-bottom: 25px;
+    }
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 50px 120px;
+    font: 300 26px/1.1 $font;
+    text-transform: uppercase;
+    @include media-laptop {
+      grid-template-columns: repeat(3, auto);
+      gap: 30px 60px;
+      font-size: 20px;
+    }
+    @include media-tablet {
+      grid-template-columns: repeat(2, auto);
+      gap: 20px 45px;
+      font-size: 16px;
+    }
+    li {
+      position: relative;
+      padding-left: 25px;
+      &::before {
+        content: '#';
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: $red;
+      }
+    }
+  }
+}

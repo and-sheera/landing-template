@@ -1,0 +1,28 @@
+-
+  const contactIfItems =[
+    'Fully Resposive. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.',
+    'Retina Ready. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.',
+    'Stylish Design. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.',
+    'Clean Code. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.',
+    'Easy To Customize. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.',
+    'Free of Charge. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.',
+  ]
+
+mixin about(mods)
+  -
+    const baseName = 'about'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .about(class=allMods)&attributes(attributes)
+    +ui-h2('About us', 'about')
+    ul.about__list
+      each item in contactIfItems
+        li=item
+    block

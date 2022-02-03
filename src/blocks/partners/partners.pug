@@ -1,0 +1,21 @@
+mixin partners(mods)
+  -
+    const baseName = 'partners'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .partners(class=allMods)&attributes(attributes)
+    .partners__text
+      +ui-h2('Partners', 'partners')
+      .partners__descr Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+    .partners__wrapper
+      -for (var x = 0; x < 9; x++)
+        .partners__item
+          +icon('icon_partner')
+    block

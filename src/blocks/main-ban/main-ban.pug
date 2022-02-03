@@ -1,0 +1,40 @@
+-
+  benefitsData=[
+    {
+      title: 'User centered design',
+      desc: 'With lots of unique blocks, you can easily build a page without coding. Build your next website within few minutes.'
+    },
+    {
+      title: 'Earn extra money',
+      desc: 'With lots of unique blocks, you can easily build a page without coding. Build your next website within few minutes.'
+    },
+    {
+      title: 'Launch your service',
+      desc: 'With lots of unique blocks, you can easily build a page without coding. Build your next website within few minutes.'
+    },
+  ]
+
+mixin main-ban(mods)
+  -
+    const baseName = 'main-ban'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .main-ban(class=allMods)&attributes(attributes)
+    .main-ban__text
+      h1.main-ban__title Landing for&nbsp;startups
+      .main-ban__desc Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.
+      +ui-button('Pre order now').js-anchor(href='#request')
+    .main-ban__benefit
+      include ../../images/icon_main-ban.svg
+      each item in benefitsData
+        .main-ban__benefit-item
+          .main-ban__benefit-title=item.title
+          .main-ban__benefit-desc !{item.desc}
+    block

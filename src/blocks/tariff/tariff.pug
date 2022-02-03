@@ -1,0 +1,39 @@
+-
+  const tariffItems =[
+    {
+      title: 'First plan',
+      descr: 'Sed ut perspiciatis unde omnis iste natus error sit',
+      price: '5 000 $',
+    },
+    {
+      title: 'Second plan',
+      descr: 'Totam rem aperiam, eaque ipsa quae ab illo',
+      price: '7 500 $',
+    }
+  ]
+
+mixin tariff(mods)
+  -
+    const baseName = 'tariff'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .tariff(class=allMods)&attributes(attributes)
+    +ui-h2('Tariffs', 'tariff')
+    .tariff__grid
+      each item, index in tariffItems
+        .tariff__item
+          .tariff__item-icon
+            +icon('tariff'+index)
+          .tariff__item-content
+            .tariff__item-title !{item.title}
+            .tariff__item-descr !{item.descr}
+            .tariff__item-price !{item.price}
+      +request('tariff')
+    block

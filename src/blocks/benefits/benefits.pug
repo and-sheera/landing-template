@@ -1,0 +1,20 @@
+mixin benefits(mods)
+  -
+    const baseName = 'benefits'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .benefits(class=allMods)&attributes(attributes)
+    +ui-h2('Benefits of working with us', 'benefits')
+    .benefits__wrapper
+       -for (var x = 0; x < 4; x++)
+        .benefits__item
+          .benefits__item-count=x+1
+          .benefits__item-text Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.
+    block

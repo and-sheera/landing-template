@@ -1,0 +1,40 @@
+extends layouts/layout
+
+block variables
+  -const pageTitle ='Repository blocks'
+
+block content
+  main
+    .inner
+      +ui-h2(pageTitle)
+      +section()
+        +ui-h2('Section title', 'section')
+        +ui-h2('Section title')
+      +section()
+        +ui-h2('Slider', 'section')
+        +slider()
+      +section()
+        +ui-h2('UI Buttons', 'section')
+        +ui-button('Кнопка-ссылка')(href='/')
+        +ui-button('Кнопка-submit', '', true)
+        +ui-button('Кнопка-button')
+        br
+        br
+        +ui-button('Кнопка-ссылка', '--filled')(href='/')
+        +ui-button('Кнопка-submit', '--filled', true)
+        +ui-button('Кнопка-button', '--filled')
+      +section()
+        +ui-h2('UI Input', 'section')
+        +ui-input('phone', 'Phone')(required)
+      +section()
+        +ui-h2('UI Range', 'section')
+        +ui-range(data-min='5' data-max='100', data-start='75')
+      +section()
+        +ui-h2('Lazy load test', 'section')
+        img.lazyload(src='/img/swim.jpg' data-src='/img/fancy_img1.png' alt='')
+      +section()
+        +ui-h2('Lazy load test', 'section')
+        img.lazyload(src='/img/swim.jpg' data-src='/img/fancy_img2.png' alt='')
+      +section()
+        +ui-h2('Lazy load test', 'section')
+        img.lazyload(src='/img/swim.jpg' data-src='/img/fancy_img3.png' alt='')

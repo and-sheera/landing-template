@@ -1,0 +1,59 @@
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  @include media-laptop {
+    display: block;
+  }
+  &__ui-h2 {
+    max-width: 360px;
+    margin-top: 20px;
+    margin-right: 30px;
+    @include media-laptop {
+      max-width: unset;
+      margin: 0 0 45px;
+    }
+    @include media-tablet {
+      margin-bottom: 30px;
+    }
+  }
+  &__list {
+    column-count: 2;
+    column-gap: 105px;
+    font: 24px/1.3 $font;
+    @include media-laptop {
+      column-gap: 45px;
+      font-size: 22px;
+    }
+    @include media-tablet {
+      column-count: 1;
+      font-size: 18px;
+    }
+    li {
+      position: relative;
+      max-width: 425px;
+      margin-bottom: 35px;
+      padding-left: 35px;
+      @include media-laptop {
+        max-width: unset;
+      }
+      @include media-tablet {
+        margin-bottom: 25px;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        top: calc((1.3em - 20px) / 2);
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0.0122029C10 0.00813634 10 0.00406857 10 -4.37114e-07C10 0.00406858 10 0.00813634 10 0.0122029C10.0041 6.67073 13.3374 10 20 10C13.3333 10 10 13.3333 10 20C10 13.3333 6.66667 10 -4.37114e-07 10C6.6626 10 9.99594 6.67073 10 0.0122029Z' fill='%23283383'/%3E%3C/svg%3E%0A");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}

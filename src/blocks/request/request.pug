@@ -1,0 +1,32 @@
+mixin request(mods)
+  -
+    const baseName = 'request'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  #request.request(class=allMods)&attributes(attributes)
+    block
+    .request-wrapper
+      .request-decor
+        +icon('request-decor')
+      form.request-form.js-request_success
+        .request-form__title Order now
+        .request-form__line
+          +ui-input('requestName', 'Name')(required)
+        .request-form__line
+          +ui-input('requestEmail', 'e-mail', '', 'email')(required)
+        .request-form__foot
+          +ui-button('Send', 'request-form, --white', true)
+          .request-form__agreement By leaving a request, you agree to the terms of personal data processing
+    .request-success
+      .request-success__wrap
+        .request-success__icon
+          +icon('request-success')
+        .request-success__title Happened! Application sent.
+        .request-success__descr You will be contacted

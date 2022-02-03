@@ -1,0 +1,30 @@
+extends layouts/layout
+
+block variables
+  -const pageTitle ='Main'
+
+block content
+  main
+    +section('--ov-hidden')
+      .inner
+        +main-ban
+    +section('--bg-grey')
+      .inner
+        +services
+    +section
+      .inner
+        +partners
+    +section
+      .inner
+        +join-club
+    +section
+      .inner
+        +benefits
+    +section('--bg-top-grey')
+      +calc
+    +section
+      .inner
+        +about
+    +section('--bg-grey')
+      .inner
+        +tariff

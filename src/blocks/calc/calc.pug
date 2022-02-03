@@ -1,0 +1,146 @@
+-
+  calcData={
+    heading: {
+      title: 'Heading table',
+      items: [
+        'Work',
+        'Vacation',
+        'Sick leave',
+        'Rent',
+        'Taxes',
+        'Something',
+      ],
+      total: 'Total:'
+    },
+    columns: [
+      {
+        title: 'FT specialist',
+        icon: 'icon_calc-staff',
+        items: [
+          {
+            id: 'staff_salary',
+            txt: '720 000 $'
+          },
+          {
+            id: 'staff_vacation',
+            txt: '30 000 $'
+          },
+          {
+            txt: '10 000 $'
+          },
+          {
+            id: 'staff_rent',
+            txt: '120 000 $'
+          },
+          {
+            txt: '20 000 $'
+          },
+          {
+            txt: '30 000 $'
+          }
+        ],
+        total: {
+          id: 'staff_total',
+          txt: 'total'
+        }
+      },
+      {
+        title: 'Freelancer',
+        icon: 'icon_calc-freelance',
+        items: [
+          {
+            id: 'freelance_salary',
+            txt: '800 000 $'
+          },
+          {
+            txt: '0 $'
+          },
+          {
+            txt: '0 $'
+          },
+          {
+            txt: '0 $'
+          },
+          {
+            txt: '0 $'
+          },
+          {
+            txt: '0 $'
+          },
+        ],
+        total: {
+          id: 'freelance_total',
+          txt: 'total'
+        }
+      },
+      {
+        isAccent: true,
+        title: 'We',
+        icon: 'icon_calc-star',
+        items: [
+          {
+            id: 'our_salary',
+            txt: '400 000 $'
+          },
+          {
+            txt: '0 $'
+          },
+          {
+            txt: '0 $'
+          },
+          {
+            txt: '0 $'
+          },
+          {
+            txt: '0 $'
+          },
+          {
+            txt: '0 $'
+          },
+        ],
+        total: {
+          id: 'our_total',
+          txt: '400 000 $'
+        }
+      }
+    ]
+  }
+
+mixin calc(mods)
+  -
+    const baseName = 'calc'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .calc(class=allMods)&attributes(attributes)
+    .calc__top
+      .inner
+        +ui-h2('Pick a time', 'calc')
+        +ui-range('calc')(data-min='5' data-max='500', data-start='120')
+    .calc__bot
+      .inner
+        +ui-h2('Heading table', 'calc__bot, --subtitle')
+        .calc__table
+          .calc__table-heading
+            .calc__table-title=calcData.heading.title
+            each item in calcData.heading.items
+              .calc__table-subtitle=item
+            .calc__table-total=calcData.heading.total
+          each column in calcData.columns
+            .calc__table-column(class=column.isAccent ? 'calc__table-column--accent' : '')
+              .calc__table-container
+                .calc__table-head
+                  +icon(column.icon)
+                  .calc__table-title=column.title
+                each item, index in column.items
+                  .calc__table-ceil
+                    .calc__table-item(id=item.id=='undefined' ? '' : item.id)=item.txt
+                    .calc__table-desc=calcData.heading.items[index]
+              .calc__table-total(id=column.total.id=='undefined' ? '' : column.total.id)=column.total.txt
+    block

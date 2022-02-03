@@ -1,0 +1,80 @@
+.ui-range {
+  max-width: 790px;
+  padding: 80px 50px 35px;
+  background-color: $peachBrown;
+  border: 1px solid rgb(255 255 255 / 0.6);
+  border-radius: 16px;
+  @include media-laptop {
+    padding: 60px 25px 20px;
+  }
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  &__value {
+    font: 300 16px/1 $font;
+    color: $black;
+    @include media-laptop {
+      font-size: 14px;
+    }
+  }
+  .noUi {
+    &-target {
+      height: 4px;
+      background: #fff;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    &-connects {
+      border-radius: 0;
+    }
+    &-connect {
+      background: $red;
+    }
+    &-handle {
+      top: -9px;
+      right: -9px;
+      width: 22px;
+      height: 22px;
+      background: $red;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: none;
+      @include media-laptop {
+        top: -7px;
+        right: -7px;
+        width: 18px;
+        height: 18px;
+      }
+      &::before {
+        top: 5px;
+        left: 5px;
+        width: 12px;
+        height: 12px;
+        background-color: #fff;
+        border-radius: 50%;
+        @include media-laptop {
+          top: 3px;
+          left: 3px;
+        }
+      }
+      &::after {
+        display: none;
+      }
+    }
+    &-tooltip {
+      bottom: 125%;
+      padding: 0;
+      font: 400 34px/1.2 $font;
+      color: $red;
+      background: transparent;
+      border: none;
+      @include media-laptop {
+        font-size: 26px;
+      }
+    }
+  }
+}
