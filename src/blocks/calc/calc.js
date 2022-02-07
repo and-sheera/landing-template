@@ -96,18 +96,19 @@ function alignRows() {
 
 function animationCalc() {
   gsap.registerPlugin(ScrollTrigger)
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: '.calc',
-      start: 'top top',
-      end: '+=25%',
-      once: true
-    }
-  })
-    .from('.calc__table-column', {
+  if (window.innerWidth > 767) {
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '.calc',
+        start: 'top top',
+        end: '+=25%',
+        once: true
+      }
+    }).from('.calc__table-column', {
       duration: 0.4,
       x: 80,
       opacity: 0,
       stagger: 0.4
     })
+  }
 }
